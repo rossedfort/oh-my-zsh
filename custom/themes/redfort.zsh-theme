@@ -5,7 +5,12 @@ PROMPT+='$(git_prompt_info)'
 PROMPT+='%(?:%{$fg_bold[green]%}✔︎ :%{$fg_bold[red]%}✘ )%{$reset_color%}'
 PROMPT+="${NEWLINE}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}[%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}△ "
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}] %{$fg[yellow]%}△ "
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}]"
+# ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE
+# ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE
+# ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE
+# ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE
+# ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_DETAILED
