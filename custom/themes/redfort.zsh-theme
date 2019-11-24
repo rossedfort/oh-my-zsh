@@ -1,9 +1,13 @@
 NEWLINE=$'\n'
+ZSH_THEME_NVM_PROMPT_PREFIX="node:"
+ZSH_THEME_NVM_PROMPT_SUFFIX=""
 
 PROMPT='%{$fg[blue]%}%n%{$reset_color%} in %{$fg[green]%}%~ %{$reset_color%}'
 PROMPT+='$(git_prompt_info)'
 PROMPT+='%(?:%{$fg_bold[green]%}✔︎ :%{$fg_bold[red]%}✘ )%{$reset_color%}'
 PROMPT+="${NEWLINE}"
+
+RPROMPT="$(nvm_prompt_info)"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}[%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
