@@ -1,0 +1,1 @@
+/Users/redfort/code/github/rossedfort/dotfiles/spaceship-prompt/spaceship.zsh-theme
