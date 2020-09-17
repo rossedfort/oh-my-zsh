@@ -1,18 +1,49 @@
 NEWLINE=$'\n'
-ZSH_THEME_NVM_PROMPT_PREFIX="node:"
-ZSH_THEME_NVM_PROMPT_SUFFIX=""
 
-PROMPT='%{$FG[039]%}%n%{$reset_color%} in %{$FG[042]%}%~ %{$reset_color%}'
-PROMPT+='$(git_prompt_info)'
-PROMPT+='%(?:%{$FG[042]%}✔︎ :%{$FG[009]%}✘ )%{$reset_color%}'
+export ZSH_THEME_NVM_PROMPT_PREFIX="node:"
+
+# Set terminal title
+export DISABLE_AUTO_TITLE="true"
+function precmd () {
+  window_title="\033]0;${PWD##*/}\007"
+  echo -ne "$window_title"
+}
+
+# spectrum_ls in terminal for colors
+function color() {
+  local col=$1
+  local text=$2
+
+  echo "%F{${col}}${text}%f"
+}
+
+SUCCESS=$(color 2 '✔︎')
+FAILURE=$(color 1 '✘')
+
+function getExit() {
+  echo "%(?:$SUCCESS:$FAILURE)% "
+}
+
+function getUser() {
+  color 2 '%n'
+}
+
+function getDir() {
+  color 4 '%~'
+}
+
+function newline() {
+  echo $'\n'
+}
+
+function getTime() {
+  echo "[$(color 4 %D{%I:%M:%S})]"
+}
+
+ZSH_THEME_GIT_PROMPT_PREFIX="on $(color 4 '(')"
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_DIRTY="$(color 4 ')') $(color 3 '△') "
+ZSH_THEME_GIT_PROMPT_CLEAN=$(color 4 ')')
+
+PROMPT='$(getTime) $(getUser) in $(getDir)[$(nvm_prompt_info)] $(git_prompt_info) $(getExit)'
 PROMPT+="${NEWLINE}"
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[041]%}[%{$FG[045]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[041]%}] %{$FG[227]%}△ "
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[041]%}]"
-# ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE
-# ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE
-# ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE
-# ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE
-# ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_DETAILED
