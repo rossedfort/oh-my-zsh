@@ -14,7 +14,7 @@ function color() {
   local col=$1
   local text=$2
 
-  echo "%F{${col}}${text}%f"
+  echo "%F{$col}$text%f"
 }
 
 SUCCESS=$(color 2 '✔︎')
@@ -45,5 +45,5 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY="$(color 4 ')') $(color 3 '△') "
 ZSH_THEME_GIT_PROMPT_CLEAN=$(color 4 ')')
 
-PROMPT='$(getTime) $(getUser) in $(getDir)[$(nvm_prompt_info)] $(git_prompt_info) $(getExit)'
+PROMPT='$(getTime) $(getUser) in $(getDir) $(git_prompt_info) $(getExit)'
 PROMPT+="${NEWLINE}"
