@@ -33,7 +33,7 @@ function getHostname() {
 }
 
 function getDir() {
-  color 4 '%~'
+  color 4 '%~' # %1d for current dir only
 }
 
 function newline() {
@@ -49,5 +49,6 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY="$(color 4 ')') $(color 3 '△') "
 ZSH_THEME_GIT_PROMPT_CLEAN=$(color 4 ')')
 
-PROMPT='$(getTime) $(getUser)@$(getHostname) in $(getDir) $(git_prompt_info) $(getExit)'
+# @$(getHostname)
+PROMPT='$(getTime) $(getUser) in $(getDir) $(git_prompt_info) $(getExit)'
 PROMPT+="${NEWLINE}"
