@@ -50,5 +50,5 @@ ZSH_THEME_GIT_PROMPT_DIRTY="$(color 4 ')') $(color 3 '△') "
 ZSH_THEME_GIT_PROMPT_CLEAN=$(color 4 ')')
 
 # @$(getHostname)
-PROMPT='$(getTime) $(getUser) in $(getDir) $(git_prompt_info) $(getExit)'
+PROMPT='$(getTime) $(getUser)@$(getHostname) in $(getDir) $(git_prompt_info) $(getExit)'
 PROMPT+="${NEWLINE}"
