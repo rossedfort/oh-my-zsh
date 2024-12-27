@@ -2,13 +2,6 @@ NEWLINE=$'\n'
 
 export ZSH_THEME_NVM_PROMPT_PREFIX="node:"
 
-# Set terminal title
-export DISABLE_AUTO_TITLE="true"
-function precmd () {
-  window_title="\033]0;${PWD##*/}\007"
-  echo -ne "$window_title"
-}
-
 # spectrum_ls in terminal for colors
 function color() {
   local col=$1
@@ -25,7 +18,7 @@ function getExit() {
 }
 
 function getUser() {
-  color 2 '%n'
+  color 2 '%p'
 }
 
 function getHostname() {
